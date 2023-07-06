@@ -2,12 +2,11 @@
 
 Versplore is a music quiz website that challenges your knowledge of popular songs across different genres. Test your lyrical memory and see how well you can identify songs based on a few lines of lyrics.
 
-![alt text](images/Img1.png)
+![alt text](versplore/Images/Img1.png)
 
 ## Features
 
 ![alt text](images/Img4.png)
-
 
 Multiple Genres: Choose between popular genres like Pop and Rap to focus on your preferred style of music.
 
