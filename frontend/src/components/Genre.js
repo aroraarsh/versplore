@@ -16,6 +16,10 @@ const Genre = () => {
     navigate("/Quiz?genre=disney");
   };
 
+  const handleRnbClick = () => {
+    navigate("/Quiz?genre=rnb");
+  };
+
   return (
     <div className="min-h-screen bg-gray-900 flex justify-center items-center">
       <div className="text-center">
@@ -34,10 +38,16 @@ const Genre = () => {
             Rap
           </button>
           <button
-            className="bg-teal-500 hover:bg-teal-600 text-white font-bold py-4 px-8 rounded-lg"
+            className="bg-teal-500 hover:bg-teal-600 text-white font-bold py-4 px-8 mr-4 rounded-lg"
             onClick={handleDisneyClick}
           >
             Disney
+          </button>
+          <button
+            className="bg-teal-500 hover:bg-teal-600 text-white font-bold py-4 px-8 rounded-lg"
+            onClick={handleRnbClick}
+          >
+            R&B
           </button>
         </div>
       </div>

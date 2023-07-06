@@ -56,12 +56,18 @@ def pop_game():
 
 
 @app.route('/api/game/disney', methods=['GET'])
-def rnb_game():
+def disney_game():
     df = pd.read_csv('disney.csv')
     df['Lyrics'] = df['Lyrics'].apply(ast.literal_eval)
     data = game(df)
     return jsonify(data)
 
+@app.route('/api/game/rnb', methods=['GET'])
+def rnb_game():
+    df = pd.read_csv('rnb.csv')
+    df['Lyrics'] = df['Lyrics'].apply(ast.literal_eval)
+    data = game(df)
+    return jsonify(data)
 
 if __name__ == '__main__':
     app.run()
