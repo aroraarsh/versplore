@@ -97,7 +97,7 @@ const QuizPage = () => {
   return (
     <div className="min-h-screen bg-gray-900">
       <nav className="bg-gray-900 py-4 px-8 flex items-center">
-        <Link to="/Home" className="text-white text-lg font-bold">
+        <Link to="/" className="text-white text-lg font-bold">
           Versplore
         </Link>
         <div className="flex-grow"></div>
