@@ -6,15 +6,15 @@ Versplore is a music quiz website that challenges your knowledge of popular song
 
 ## Features
 
-![image 2](Images/Img4.png)
+![image 2](Images/img4.png)
 
 Multiple Genres: Choose between popular genres like Pop and Rap to focus on your preferred style of music.
 
-![image 3](Images/Img3.png)
+![image 3](Images/img3.png)
 
 Randomized Questions: Each quiz session presents a set of randomized questions to keep the game engaging and exciting.
 
-![image 4](Images/Img4.png)
+![image 4](Images/img4.png)
 
 Score Tracking: Keep track of your score as you progress through the quiz and aim for a perfect score.
 Dynamic Options: Select the correct song title from a list of options, including both correct and incorrect answers.
