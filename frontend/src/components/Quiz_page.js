@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Transition } from 'react-transition-group';
 import { FiCheck, FiX } from 'react-icons/fi';
 import 'tailwindcss/tailwind.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from "react-router-dom";
 
 const QuizPage = () => {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
@@ -12,6 +12,9 @@ const QuizPage = () => {
   const [score, setScore] = useState(0);
   const [round, setRound] = useState(1);
   const [optionClassName, setOptionClassName] = useState('');
+
+  const location = useLocation();
+  const genre = new URLSearchParams(location.search).get("genre");
 
   const handleAnswerSelect = (answer) => {
     setSelectedAnswer(answer);
@@ -29,6 +32,7 @@ const QuizPage = () => {
   };
 
   const handleNextQuestion = () => {
+    setQuestionData(null);
     setSelectedAnswer(null);
     setShowResult(false);
     setOptionClassName('');
@@ -57,17 +61,17 @@ const QuizPage = () => {
   useEffect(() => {
     const fetchQuestion = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:5000/api/game');
+        const response = await fetch(`http://127.0.0.1:5000/api/game/${genre}`);
         const data = await response.json();
         const shuffledOptions = shuffleOptions(data.options);
         setQuestionData({ ...data, options: shuffledOptions });
       } catch (error) {
-        console.error('Error fetching question:', error);
+        console.error("Error fetching question:", error);
       }
     };
 
     fetchQuestion();
-  }, [round]);
+  }, [genre, round]);
 
   useEffect(() => {
     setOptionClassName('');

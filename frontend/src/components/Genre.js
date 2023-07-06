@@ -5,13 +5,11 @@ const Genre = () => {
   const navigate = useNavigate();
 
   const handlePopClick = () => {
-    navigate('/Quiz');
+    navigate("/Quiz?genre=pop");
   };
 
   const handleRapClick = () => {
-    // Redirect to another route for the "rap" button
-    // Replace '/path-to-rap' with the desired route path
-    navigate('/path-to-rap');
+    navigate("/Quiz?genre=rap");
   };
 
   return (
