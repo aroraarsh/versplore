@@ -6,6 +6,8 @@ from dotenv import load_dotenv
 import spotipy
 import pandas as pd
 from spotipy.oauth2 import SpotifyClientCredentials
+import os
+
 
 load_dotenv()
 
@@ -14,8 +16,8 @@ CORS(app)
 
 # Configure Spotify API credentials
 client_credentials_manager = SpotifyClientCredentials(
-    client_id='dc1673970abd476185eccd9cca864126',
-    client_secret='2bedab20a4d2425aa4c2122fc147d306'
+    client_id=os.getenv("REACT_APP_CID"),
+    client_secret=os.getenv("REACT_APP_SEC"),
 )
 spotify = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 

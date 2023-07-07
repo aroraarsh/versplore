@@ -20,7 +20,7 @@ const Game = () => {
 
   const fetchGame = async () => {
     try {
-      const response = await fetch('http://manavsharma57.pythonanywhere.com/api/game/spotify');
+      const response = await fetch('http://127.0.0.1:5000/api/game/spotify');
       if (response.ok) {
         const data = await response.json();
         setLyrics(data.lyrics);
