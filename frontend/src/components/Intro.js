@@ -17,7 +17,7 @@ const Intro = () => {
         </h1>
 
         <p className="text-white text-lg md:text-xl text-center mb-6">
-          Versplore is an interactive quiz platform that tests your knowledge of rap lyrics. Challenge yourself with a series of questions where you have to identify the correct song based on the given lyrics. Think you're a rap aficionado? Put your skills to the test and see how well you really know your favorite rap songs.
+        Versplore is an interactive quiz platform that tests your knowledge of music lyrics across various genres. Challenge yourself with a series of questions where you have to identify the correct song based on the given lyrics. Whether you're into Pop, Rap, R&B, Rock, or even Disney music, Versplore offers a diverse range of genres to put your music knowledge to the test. Think you're a music aficionado? Put your skills to the test and see how well you really know your favorite songs.
         </p>
 
         <div className="flex justify-center">
