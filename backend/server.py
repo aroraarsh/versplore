@@ -69,5 +69,19 @@ def rnb_game():
     data = game(df)
     return jsonify(data)
 
+@app.route('/api/game/country', methods=['GET'])
+def country_game():
+    df = pd.read_csv('country.csv')
+    df['Lyrics'] = df['Lyrics'].apply(ast.literal_eval)
+    data = game(df)
+    return jsonify(data)
+
+@app.route('/api/game/rock', methods=['GET'])
+def rock_game():
+    df = pd.read_csv('rock.csv')
+    df['Lyrics'] = df['Lyrics'].apply(ast.literal_eval)
+    data = game(df)
+    return jsonify(data)
+
 if __name__ == '__main__':
     app.run()

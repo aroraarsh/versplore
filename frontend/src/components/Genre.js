@@ -20,6 +20,14 @@ const Genre = () => {
     navigate("/Quiz?genre=rnb");
   };
 
+  const handleCountryClick = () => {
+    navigate("/Quiz?genre=country");
+  };
+
+  const handleRockClick = () => {
+    navigate("/Quiz?genre=rock");
+  };
+
   return (
     <div className="min-h-screen bg-gray-900 flex justify-center items-center">
       <div className="text-center">
@@ -43,12 +51,26 @@ const Genre = () => {
           >
             Disney
           </button>
-          <button
-            className="bg-teal-500 hover:bg-teal-600 text-white font-bold py-4 px-8 rounded-lg"
-            onClick={handleRnbClick}
-          >
-            R&B
-          </button>
+          <div className="flex">
+            <button
+              className="bg-teal-500 hover:bg-teal-600 text-white font-bold py-4 px-8 mr-4 rounded-lg"
+              onClick={handleRnbClick}
+            >
+              R&B
+            </button>
+            <button
+              className="bg-teal-500 hover:bg-teal-600 text-white font-bold py-4 px-8 mr-4 rounded-lg"
+              onClick={handleCountryClick}
+            >
+              Country
+            </button>
+            <button
+              className="bg-teal-500 hover:bg-teal-600 text-white font-bold py-4 px-8 rounded-lg"
+              onClick={handleRockClick}
+            >
+              Rock
+            </button>
+          </div>
         </div>
       </div>
     </div>
