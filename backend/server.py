@@ -3,12 +3,76 @@ import ast
 from flask import Flask, jsonify
 from flask_cors import CORS
 from dotenv import load_dotenv
+import spotipy
 import pandas as pd
+from spotipy.oauth2 import SpotifyClientCredentials
 
 load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
+
+# Configure Spotify API credentials
+client_credentials_manager = SpotifyClientCredentials(
+    client_id='dc1673970abd476185eccd9cca864126',
+    client_secret='2bedab20a4d2425aa4c2122fc147d306'
+)
+spotify = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
+
+# ... your existing routes and middleware ...
+
+# Game route with Spotify integration
+import time
+
+@app.route('/api/game/spotify', methods=['GET'])
+def spotify_game():
+    playlist_id = '4riovLwMCrY3q0Cd4e0Sqp'  # Replace with your Spotify playlist ID
+    max_retries = 3  # Maximum number of retries
+
+    try_count = 0
+    while try_count < max_retries:
+        try_count += 1
+
+        try:
+            # Retrieve the playlist tracks from Spotify API
+            results = spotify.playlist_tracks(playlist_id)
+            tracks = results['items']
+
+            if len(tracks) < 4:
+                return jsonify(error='Insufficient tracks in the playlist.')
+
+            # Shuffle the tracks and select four random ones
+            random_tracks = random.sample(tracks, 4)
+
+            for track in random_tracks:
+                song_name = track['track']['name']
+                preview_url = track['track']['preview_url']
+                if preview_url:
+                    correct_song = song_name
+                    break
+            else:
+                # Continue to the next iteration if no song with a preview URL is found
+                continue
+
+            song_options = [track['track']['name'] for track in random_tracks]
+            random.shuffle(song_options)
+
+            # Generate the game data
+            data = {
+                'correct_song': correct_song,
+                'options': song_options,
+                'preview_url': preview_url
+            }
+
+            return jsonify(data)
+
+        except spotipy.SpotifyException as e:
+            print('Error:', e)
+
+        time.sleep(1)  # Wait for 1 second before retrying
+
+    return jsonify(error='Failed to retrieve playlist tracks with a preview URL from Spotify.')
+
 
 
 def generate_lyric(df, song_index):

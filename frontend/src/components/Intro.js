@@ -6,7 +6,7 @@ const Intro = () => {
   const navigate = useNavigate();
 
   const handlePlayNow = () => {
-    navigate('/Genre');
+    navigate('/selector');
   };
 
   return (
@@ -15,11 +15,17 @@ const Intro = () => {
         <h1 className="text-4xl md:text-5xl font-bold text-white text-center mb-10">
           Welcome to Versplore
         </h1>
-
         <p className="text-white text-lg md:text-xl text-center mb-6">
-        Versplore is an interactive quiz platform that tests your knowledge of music lyrics across various genres. Challenge yourself with a series of questions where you have to identify the correct song based on the given lyrics. Whether you're into Pop, Rap, R&B, Rock, or even Disney music, Versplore offers a diverse range of genres to put your music knowledge to the test. Think you're a music aficionado? Put your skills to the test and see how well you really know your favorite songs.
+          <ul className="list-disc list-inside">
+            <li>
+              Song Guesser by Listening: Listen to snippets of songs from various genres and try to guess the correct song title. Test your ear for music and see if you can identify the songs based on their melodies and rhythms.
+            </li>
+            <li>
+              Song Guesser by Lyrics: Read the given lyrics and try to guess the correct song title. Put your knowledge of song lyrics to the test as you try to match the words to the right song.
+            </li>
+          </ul>
+          Whether you prefer guessing songs by listening or by lyrics, Versplore has the perfect games to keep you entertained and test your music expertise. Join now and show off your skills in both song guessing challenges!
         </p>
-
         <div className="flex justify-center">
           <button
             className="bg-teal-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition-colors duration-300"
