@@ -61,7 +61,7 @@ const QuizPage = () => {
   useEffect(() => {
     const fetchQuestion = async () => {
       try {
-        const response = await fetch(`http://manavsharma57.pythonanywhere.com/api/game/${genre}`);
+        const response = await fetch(`https://manavsharma57.pythonanywhere.com/api/game/${genre}`);
         const data = await response.json();
         const shuffledOptions = shuffleOptions(data.options);
         setQuestionData({ ...data, options: shuffledOptions });
